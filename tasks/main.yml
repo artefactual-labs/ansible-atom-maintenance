@@ -1,0 +1,7 @@
+---
+
+- handlers:
+  include: "handlers/main.yml"
+
+- name: "Restart php-fpm"
+  notify: "Restart php-fpm"

@@ -1,0 +1,19 @@
+---
+
+- name: Testing
+  hosts: all
+  become: yes
+
+  vars_files:
+    - "defaults/main.yml"
+
+  tasks:
+
+  - name: "Restart php-fpm"
+    shell: echo "hi..."
+    notify:
+      - "Restart php-fpm"
+      - "Clear sf_cache"
+
+  handlers:
+    - include: "handlers/main.yml"
